@@ -1,4 +1,4 @@
-.register {
+.login {
   width: 100vw;
   height: 100vh;
   background: linear-gradient(
@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     ),
-    url("https://cdn.hipwallpaper.com/i/98/21/dUyCkp.jpg");
+    url("https://i.pinimg.com/originals/2f/88/a9/2f88a9427474343f7275e3b8f6fcc2e1.jpg");
   background-size: cover;
   position: relative;
 
@@ -19,17 +19,6 @@
 
       .logo {
         height: 40px;
-      }
-
-      .loginButton {
-        background-color: red;
-        border-top: none;
-        color: white;
-        border-radius: 5px;
-        padding: 5px 15px;
-        font-size: 16px;
-        font-weight: 500;
-        cursor: pointer;
       }
     }
 
@@ -45,43 +34,44 @@
       justify-content: center;
       color: white;
 
-      h1 {
-        font-size: 50px;
-      }
-
-      h2 {
-        margin: 20px;
-      }
-
-      p {
-        font-size: 20px;
-      }
-
-      .input {
-        width: 50%;
-        background-color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 20px;
-        height: 50px;
+      form {
+        width: 300px;
+        height: 300px;
+        padding: 30px;
         border-radius: 5px;
+        background-color: var(--main-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
         input {
-          flex: 9;
-          height: 100%;
-          border: none;
-          padding: 0 10px;
+          height: 40px;
+          border-radius: 5px;
+          background-color: gray;
+          color: white;
+          padding-left: 10px;
+
+          &::placeholder {
+            color: lightgray;
+          }
         }
 
-        .registerButton {
-          flex: 3;
-          height: 100%;
+        button {
+          height: 40px;
+          border-radius: 5px;
           background-color: red;
-          border: none;
           color: white;
-          font-size: 22px;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
           cursor: pointer;
+        }
+
+        span {
+          color: lightgray;
+          b {
+            color: white;
+          }
         }
       }
     }
