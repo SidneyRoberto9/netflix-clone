@@ -25,7 +25,7 @@ export default function ListItem({ index }) {
       />
       {isHovered && (
         <>
-          <video src={trailer} autoPlay={true} loop />
+          <video src={trailer} autoPlay={true} loop muted />
           <div className="itemInfo">
             <div className="icons">
               <PlayArrow className="icon" />
