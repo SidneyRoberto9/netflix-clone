@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./login.scss";
 
-export default function Register() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
