@@ -1,8 +1,28 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export default function Featured({ type }) {
+  const [content, setContent] = useState({});
+
+  useEffect(() => {
+    const getRandomContent = async () => {
+      try {
+        const res = await api.get(`movies/random/movie?type=${type}`, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjg5MDhjNDM5OTk0NmYzYmNmMzQ0YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTAzMDY1NCwiZXhwIjoxNjUxNDYyNjU0fQ.4i2xHsfDZAWaACOJy3vjNOsOLLLZFWfc-_YPzOSL8KM",
+          },
+        });
+        setContent(res.data[0]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getRandomContent();
+  }, []);
+
   return (
     <div className="featured">
       {type && (
@@ -26,19 +46,10 @@ export default function Featured({ type }) {
           </select>
         </div>
       )}
-      <img
-        src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt=""
-      />
+      <img src={content.img} alt="" />
       <div className="info">
-        <img
-          src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABRKrgH8goki6B50_fsipiwG8-efCu0w57iY4KsMiMOkV_xpwmCR1bwdO-qexN7jGsMEEVHu_udqNGVab2eGM-RxjYidvNBjuWkAE.png?r=df1"
-          alt="logo"
-        />
-        <span className="dsc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates,
-          quisquam.
-        </span>
+        <img src={content.imgTitle} alt="logo" />
+        <span className="dsc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
             <PlayArrow />

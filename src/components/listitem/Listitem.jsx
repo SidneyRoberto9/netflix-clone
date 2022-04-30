@@ -16,7 +16,7 @@ export default function ListItem({ index, item }) {
   useEffect(() => {
     const getMovie = async () => {
       try {
-        const res = await api.get("movies/" + item, {
+        const res = await api.get("/movies/" + item, {
           headers: {
             token:
               "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjg5MDhjNDM5OTk0NmYzYmNmMzQ0YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTAzMDY1NCwiZXhwIjoxNjUxNDYyNjU0fQ.4i2xHsfDZAWaACOJy3vjNOsOLLLZFWfc-_YPzOSL8KM",
