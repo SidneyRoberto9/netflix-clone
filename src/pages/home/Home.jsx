@@ -20,11 +20,11 @@ const Home = ({ type }) => {
           {
             headers: {
               token:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjg5MDhjNDM5OTk0NmYzYmNmMzQ0YiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1MTAzMDY1NCwiZXhwIjoxNjUxNDYyNjU0fQ.4i2xHsfDZAWaACOJy3vjNOsOLLLZFWfc-_YPzOSL8KM",
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );
-
         setLists(res.data);
       } catch (error) {
         console.log(error);
@@ -36,7 +36,7 @@ const Home = ({ type }) => {
   return (
     <div className="home">
       <Navbar />
-      <Featured type={type} />
+      <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
         <List list={list} key={list._id} />
       ))}

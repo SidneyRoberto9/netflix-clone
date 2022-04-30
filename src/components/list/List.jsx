@@ -9,6 +9,7 @@ import ListItem from "../listItem/ListItem";
 export default function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
   const [sliderNumber, setSliderNumber] = useState(0);
+  const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
 
   const listRef = useRef();
 
@@ -21,7 +22,7 @@ export default function List({ list }) {
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
     }
 
-    if (direction === "right" && sliderNumber < 5) {
+    if (direction === "right" && sliderNumber < 10 - clickLimit) {
       setSliderNumber(sliderNumber + 1);
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
     }
