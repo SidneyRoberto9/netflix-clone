@@ -7,7 +7,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../services/api";
-import "./listItem.scss";
+import "./listitem.scss";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
