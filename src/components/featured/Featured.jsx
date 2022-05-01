@@ -21,6 +21,7 @@ export default function Featured({ type, setGenre }) {
       }
     };
     getRandomContent();
+    // eslint-disable-next-line
   }, []);
 
   return (

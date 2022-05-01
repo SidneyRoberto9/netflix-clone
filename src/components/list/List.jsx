@@ -9,7 +9,9 @@ import ListItem from "../listItem/ListItem";
 export default function List({ list }) {
   const [isMoved, setIsMoved] = useState(false);
   const [sliderNumber, setSliderNumber] = useState(0);
-  const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
+  const [clickLimit, setClickLimit] = useState(0);
+
+  setClickLimit(window.innerWidth / 230);
 
   const listRef = useRef();
 
