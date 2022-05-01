@@ -1,10 +1,9 @@
-import Navbar from "../../components/navbar/Navbar";
 import Featured from "../../components/featured/Featured";
+import Navbar from "../../components/navbar/Navbar";
 import List from "../../components/list/List";
-import "./home.scss";
-
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import "./home.scss";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -12,23 +11,16 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const getRandomLists = async () => {
-      try {
-        const res = await api.get(
-          `lists${type ? "?type=" + type : ""}${
-            genre ? "&genre=" + genre : ""
-          }`,
-          {
-            headers: {
-              token:
-                "Bearer " +
-                JSON.parse(localStorage.getItem("user")).accessToken,
-            },
-          }
-        );
-        setLists(res.data);
-      } catch (error) {
-        console.log(error);
-      }
+      const res = await api.get(
+        `lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
+        {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        }
+      );
+      setLists(res.data);
     };
     getRandomLists();
   }, [type, genre]);
@@ -38,7 +30,7 @@ const Home = ({ type }) => {
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
       {lists.map((list) => (
-        <List list={list} key={list._id} />
+        <List key={list._id} list={list} />
       ))}
     </div>
   );

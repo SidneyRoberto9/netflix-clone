@@ -9,31 +9,31 @@ export default function Featured({ type, setGenre }) {
   useEffect(() => {
     const getRandomContent = async () => {
       try {
-        const res = await api.get(`movies/random/movie?type=${type}`, {
+        const { data } = await api.get(`movies/random/movie?type=${type}`, {
           headers: {
             token:
               "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
-        setContent(res.data[0]);
+        setContent(data[0]);
       } catch (error) {
         console.log(error);
       }
     };
     getRandomContent();
-    // eslint-disable-next-line
-  }, []);
+  }, [type]);
+
+  const handleGenreChange = (e) => {
+    e.preventDefault();
+    setGenre(e.target.value);
+  };
 
   return (
     <div className="featured">
       {type && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
-          <select
-            name="genre"
-            id="genre"
-            onChange={(e) => setGenre(e.target.value)}
-          >
+          <select name="genre" id="genre" onChange={handleGenreChange}>
             <option>Genre</option>
             <option value="adventure">Adventure</option>
             <option value="comedy">Comedy</option>

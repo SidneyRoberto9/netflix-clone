@@ -6,12 +6,10 @@ import {
 import "./list.scss";
 import ListItem from "../listItem/ListItem";
 
-export default function List({ list }) {
+const List = ({ list }) => {
   const [isMoved, setIsMoved] = useState(false);
   const [sliderNumber, setSliderNumber] = useState(0);
-  const [clickLimit, setClickLimit] = useState(0);
-
-  setClickLimit(window.innerWidth / 230);
+  const [clickLimit] = useState(window.innerWidth / 230);
 
   const listRef = useRef();
 
@@ -39,8 +37,8 @@ export default function List({ list }) {
           style={{ display: !isMoved && "none" }}
         />
         <div className="container" ref={listRef}>
-          {list.content.map((item, index) => (
-            <ListItem index={index} item={item} key={index} />
+          {list.content.map((item, i) => (
+            <ListItem index={i} item={item} key={i} />
           ))}
         </div>
         <ArrowForwardIosOutlined
@@ -50,4 +48,6 @@ export default function List({ list }) {
       </div>
     </div>
   );
-}
+};
+
+export default List;
