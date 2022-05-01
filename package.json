@@ -1,7 +1,7 @@
 {
   "name": "new",
   "version": "0.1.0",
-  "homepage": "https://sid-netflix.netlify.app/",
+  "homepage": "https://sid-netflix-app.netlify.app/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.4",
