@@ -6,6 +6,7 @@ import "./watch.scss";
 export default function Watch() {
   const location = useLocation();
   const movie = location.state;
+
   return (
     <div className="watch">
       <Link to="/">
@@ -17,9 +18,9 @@ export default function Watch() {
       <video
         className="video"
         autoPlay
-        muted
         progress="true"
         controls
+        muted
         src={movie.video}
       ></video>
     </div>
