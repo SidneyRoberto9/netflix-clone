@@ -49,7 +49,7 @@
           padding: 5px;
           border-radius: 50%;
           margin-right: 10px;
-          font-style: 16px;
+          font-size: 35px;
         }
       }
 
@@ -57,7 +57,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 10px;
-        font-size: 14px;
+        font-size: 18px;
         font-weight: 600;
         color: gray;
 
@@ -69,23 +69,16 @@
       }
 
       .desc {
-        font-style: 13px;
+        font-size: 13px;
         margin-bottom: 10px;
       }
 
       .genre {
-        font-size: 14px;
+        font-size: 20px;
         color: lightgray;
+        padding-left: 10px;
+        text-transform: capitalize;
       }
     }
-  }
-}
-
-@keyframes test {
-  from {
-    position: static;
-  }
-  to {
-    position: absolute;
   }
 }
