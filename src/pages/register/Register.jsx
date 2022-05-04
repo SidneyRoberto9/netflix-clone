@@ -5,7 +5,6 @@ import "./register.scss";
 
 export default function Register() {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ export default function Register() {
   const handleFinish = async (e) => {
     e.preventDefault();
     try {
-      let user = { email, username, password };
+      let user = { email, username: email.split("@", 1)[0], password };
       await api.post("auth/register", user);
       navigate("/login");
     } catch (error) {
@@ -64,14 +63,11 @@ export default function Register() {
             ) : (
               <>
                 <input
-                  type="username"
-                  placeholder="username"
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
+                  id="password"
                   type="password"
                   placeholder="password"
                   onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
                 <button className="registerButton" onClick={handleFinish}>
                   Start
