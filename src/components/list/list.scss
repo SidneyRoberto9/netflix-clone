@@ -1,8 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .list {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
-
+  position: relative;
+  padding-top: 85vh;
   .listTitle {
     color: white;
     font-size: 20px;
@@ -23,13 +30,22 @@
       bottom: 0;
       margin: auto;
       cursor: pointer;
+      transition: opacity 0.5s ease-out;
 
       &.left {
         left: 0;
+        opacity: 0;
+        &:hover {
+          opacity: 1;
+        }
       }
 
       &.right {
         right: 0;
+        opacity: 0;
+        &:hover {
+          opacity: 1;
+        }
       }
     }
     .container {
@@ -38,7 +54,7 @@
       margin-top: 10px;
       width: max-content;
       transform: translateX(0px);
-      transition: all 1s ease;
+      transition: all 1.2s ease;
     }
   }
 }
