@@ -8,6 +8,7 @@ import "./navbar.scss";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -42,12 +43,9 @@ const Navbar = () => {
           <Search className="icon" />
           <span>KID</span>
           <Notifications className="icon" />
-          <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-          />
+          <img src={user.profilePic} alt="" />
           <div className="profile">
-            <ArrowDropDown className="icon" />
+            <ArrowDropDown className="icon profile_icon" />
             <div className="options">
               <span>Settings</span>
               <span onClick={() => dispatch(logout())}>Logout</span>
