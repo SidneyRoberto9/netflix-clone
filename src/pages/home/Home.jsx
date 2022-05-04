@@ -12,7 +12,9 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       const res = await api.get(
-        `lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
+        `lists/random${type ? "?type=" + type : ""}${
+          genre ? "&genre=" + genre : ""
+        }`,
         {
           headers: {
             token:
@@ -29,9 +31,11 @@ const Home = ({ type }) => {
     <div className="home">
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
-        <List key={list._id} list={list} />
-      ))}
+      <div className="movies">
+        {lists.map((list) => (
+          <List key={list._id} list={list} />
+        ))}
+      </div>
     </div>
   );
 };
