@@ -45,6 +45,7 @@ const List = ({ list }) => {
             <ListItem index={i} item={item} key={i} />
           ))}
         </div>
+
         <ArrowForwardIosOutlined
           className="sliderArrow right"
           onClick={() => handleClick("right")}
