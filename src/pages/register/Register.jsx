@@ -1,18 +1,26 @@
-import React, { useRef, useState } from "react";
+import { ArrowForwardIosRounded } from "@material-ui/icons";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
 import "./register.scss";
 
 export default function Register() {
   const [email, setEmail] = useState("");
+  const [tempEmail, setTempEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const emailRef = useRef();
-
-  const handleStart = () => {
-    setEmail(emailRef.current.value);
+  const handleStart = async () => {
+    setEmail(tempEmail);
+    try {
+      let emailValidate = await api.get("/users/email/" + tempEmail);
+      if (emailValidate) {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleFinish = async (e) => {
@@ -42,38 +50,48 @@ export default function Register() {
         </div>
 
         <div className="container">
-          <h1>Unlimited movies, TV shows, and more.</h1>
+          <h1>
+            Unlimited movies, TV
+            <br />
+            shows, and more.
+          </h1>
           <h2>Watch anywhere. Cancel anytime.</h2>
           <p>
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>
           <div className="input">
-            {!email ? (
-              <>
-                <input
-                  type="email"
-                  placeholder="email address"
-                  ref={emailRef}
-                />
-                <button className="registerButton" onClick={handleStart}>
-                  Get Started
-                </button>
-              </>
-            ) : (
-              <>
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                />
-                <button className="registerButton" onClick={handleFinish}>
-                  Start
-                </button>
-              </>
-            )}
+            <input
+              type="email"
+              placeholder="email address"
+              onChange={(e) => setTempEmail(e.target.value)}
+              style={{ display: email ? "none" : "block" }}
+            />
+            <button
+              className="registerButton"
+              onClick={handleStart}
+              style={{ display: email ? "none" : "block" }}
+            >
+              <span>
+                Get Started <ArrowForwardIosRounded className="arrow" />
+              </span>
+            </button>
+
+            <input
+              id="password"
+              type="password"
+              placeholder="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              style={{ display: email ? "block" : "none" }}
+            />
+            <button
+              className="registerButton"
+              onClick={handleFinish}
+              style={{ display: email ? "block" : "none" }}
+            >
+              Start
+            </button>
           </div>
         </div>
       </div>
