@@ -15,14 +15,7 @@ export default function Watch() {
           Home
         </div>
       </Link>
-      <video
-        className="video"
-        autoPlay
-        progress="true"
-        controls
-        muted
-        src={movie.video}
-      ></video>
+      <iframe className="video" title="video" src={movie.video}></iframe>
     </div>
   );
 }
