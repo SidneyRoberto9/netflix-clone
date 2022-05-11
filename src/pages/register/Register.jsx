@@ -12,7 +12,6 @@ export default function Register() {
   const navigate = useNavigate();
 
   const handleStart = async () => {
-    setEmail(tempEmail);
     try {
       let emailValidate = await api.get("/users/email/" + tempEmail);
       if (emailValidate) {
@@ -21,6 +20,7 @@ export default function Register() {
     } catch (error) {
       console.log(error);
     }
+    setEmail(tempEmail);
   };
 
   const handleFinish = async (e) => {

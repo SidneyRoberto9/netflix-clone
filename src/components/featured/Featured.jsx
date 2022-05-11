@@ -53,7 +53,7 @@ export default function Featured({ type, setGenre }) {
         </div>
       )}
       <img src={content.img} alt="" />
-      <div className="bg"></div>
+
       <div className="info">
         <img src={content.imgTitle} alt="logo" />
         <span className="dsc">{content.desc}</span>

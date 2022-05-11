@@ -4,10 +4,13 @@ import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import "./home.scss";
+import Modal from "../../components/modal/Modal";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
   const [genre, setGenre] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [content, setContent] = useState({});
 
   useEffect(() => {
     const getRandomLists = async () => {
@@ -27,15 +30,38 @@ const Home = ({ type }) => {
     getRandomLists();
   }, [type, genre]);
 
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [openModal]);
+
+  const style = {
+    overflow: openModal && "hidden",
+  };
+
   return (
-    <div className="home">
-      <Navbar />
-      <Featured type={type} setGenre={setGenre} />
-      <div className="movies">
-        {lists.map((list) => (
-          <List key={list._id} list={list} />
-        ))}
-      </div>
+    <div className="home" style={style}>
+      {lists && (
+        <>
+          {openModal && <Modal closeModal={setOpenModal} content={content} />}
+          <Navbar />
+          <Featured type={type} setGenre={setGenre} />
+          <div className="movies">
+            {lists.map((list) => (
+              <List
+                key={list._id}
+                list={list}
+                openModal={setOpenModal}
+                setContent={setContent}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

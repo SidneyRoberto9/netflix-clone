@@ -7,9 +7,10 @@ import {
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../services/api";
+
 import "./listitem.scss";
 
-export default function ListItem({ index, item }) {
+export default function ListItem({ index, item, openModal, setContent }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
 
@@ -30,15 +31,24 @@ export default function ListItem({ index, item }) {
     getMovie();
   }, [item]);
 
+  const style = {
+    left: isHovered && index * 225 - 50 + index * 2.5,
+    marginRight: isHovered && index * 2.5,
+  };
+
   return (
-    <Link to="/watch" state={movie}>
+    <>
       <div
         className="listItem"
-        style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+        style={style}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => {
+          openModal(true);
+          setContent(movie);
+        }}
       >
-        <img src={movie.img} alt="" />
+        <img src={movie.imgSm} alt="" />
         {isHovered && (
           <>
             <video src={movie.trailer} autoPlay={true} loop muted />
@@ -50,9 +60,9 @@ export default function ListItem({ index, item }) {
                 <ThumbDownOutlined className="icon" />
               </div>
               <div className="itemInfoTop">
-                <span>{movie.duration}</span>
                 <span className="limit">+{movie.limit}</span>
                 <span>{movie.year}</span>
+                <span>{movie.duration}</span>
               </div>
 
               <div className="genre">{movie.genre}</div>
@@ -60,6 +70,6 @@ export default function ListItem({ index, item }) {
           </>
         )}
       </div>
-    </Link>
+    </>
   );
 }

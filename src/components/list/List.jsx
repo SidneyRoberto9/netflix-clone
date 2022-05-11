@@ -6,7 +6,7 @@ import {
 import "./list.scss";
 import ListItem from "../listitem/Listitem";
 
-const List = ({ list }) => {
+const List = ({ list, openModal, setContent }) => {
   const [isMoved, setIsMoved] = useState(false);
   const [sliderNumber, setSliderNumber] = useState(0);
   const [clickLimit] = useState(parseInt(window.innerWidth / 230));
@@ -15,7 +15,7 @@ const List = ({ list }) => {
 
   const handleClick = (direction) => {
     setIsMoved(true);
-    let distance = listRef.current.getBoundingClientRect().x - 50;
+    let distance = parseInt(listRef.current.getBoundingClientRect().x - 50);
 
     if (direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1);
@@ -24,7 +24,10 @@ const List = ({ list }) => {
       }px)`;
     }
 
-    if (direction === "right" && sliderNumber < parseInt(10 / clickLimit)) {
+    if (
+      direction === "right" &&
+      sliderNumber < parseInt((list.content.length - 1) / clickLimit)
+    ) {
       setSliderNumber(sliderNumber + 1);
       listRef.current.style.transform = `translateX(${
         clickLimit * -230 + distance
@@ -42,7 +45,13 @@ const List = ({ list }) => {
         />
         <div className="container" ref={listRef}>
           {list.content.map((item, i) => (
-            <ListItem index={i} item={item} key={i} />
+            <ListItem
+              index={i}
+              item={item}
+              key={i}
+              openModal={openModal}
+              setContent={setContent}
+            />
           ))}
         </div>
 
