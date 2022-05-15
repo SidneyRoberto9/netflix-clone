@@ -1,10 +1,14 @@
-import { Close } from "@material-ui/icons";
-import React from "react";
+import { Close, VolumeOff, VolumeUp } from "@material-ui/icons";
+import ReactPlayer from "react-player/lazy";
+import React, { useState } from "react";
 import "./modal.scss";
 
 function Modal({ closeModal, content }) {
-  const baseImg = new Image();
-  baseImg.src = content.img;
+  const [muted, setMuted] = useState(false);
+
+  const cap = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   return (
     <div className="modalBackground">
@@ -13,17 +17,35 @@ function Modal({ closeModal, content }) {
           <Close className="close" />
         </div>
         <div className="title">
-          <img src={baseImg.src} alt="" />
-          <video src={content.trailer} autoPlay muted></video>
+          <ReactPlayer
+            className="video"
+            url={content.trailer + "?controls=0"}
+            width="80vw"
+            height="60vh"
+            config={{
+              youtube: { playerVars: { disablekb: 1 } },
+            }}
+            playing="true"
+            onMouseEnter={() => console.log("mouse enter")}
+            muted={muted}
+          />
         </div>
+
+        <div className="muted" onClick={() => setMuted(!muted)}>
+          {muted ? <VolumeOff /> : <VolumeUp />}
+        </div>
+
         <div className="body">
-          <p>
-            the next page is awesome! You should more forward, you will enjoy
-          </p>
-        </div>
-        <div className="footer">
-          <button onClick={() => closeModal(false)}>Cancel</button>
-          <button>Continue</button>
+          <div className="info">
+            <span>{content.year}</span> -
+            <b className="limit">+{content.limit}</b> -
+            <span>{content.duration}</span>
+          </div>
+          <span className="span">{content.desc}</span>
+          <span className="span">
+            <span className="subtitle">Genre: </span>
+            {cap(content.genre)}
+          </span>
         </div>
       </div>
     </div>

@@ -29,49 +29,31 @@
   margin-top: 10px;
   z-index: 1;
 
-  img {
-    width: 80vw;
-    height: 60vh;
-    object-fit: cover;
-    border-radius: 6px 6px 0px 0px;
-    display: block;
-  }
-
-  video {
-    width: 80vw;
-    height: 60vh;
+  .video {
     position: absolute;
     top: 0;
+
     object-fit: cover;
     display: block;
   }
-
-  img {
-    animation: imgPlayer 1.2s;
-    animation-fill-mode: forwards;
-  }
-
-  video {
-    animation: videoPlayer 0.6s;
-    animation-fill-mode: forwards;
-  }
 }
+.muted {
+  position: absolute;
+  bottom: 40vh;
+  right: 12vw;
+  border: 2px solid #979797;
+  color: #979797;
+  padding: 5px 5px 2px 5px;
+  border-radius: 50%;
+  margin-right: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.6s ease;
 
-@keyframes imgPlayer {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes videoPlayer {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  &:hover {
+    color: white;
+    border-color: white;
   }
 }
 
@@ -104,31 +86,38 @@
 }
 
 .modalContainer .body {
+  position: absolute;
+  bottom: 16vh;
+  width: 75vw;
   flex: 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  text-align: center;
-}
 
-.modalContainer .footer {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer .footer button {
-  width: 150px;
-  height: 45px;
-  margin: 10px;
-  border: none;
-  background-color: cornflowerblue;
+  font-size: 16px;
   color: white;
-  border-radius: 8px;
-  font-size: 20px;
-  cursor: pointer;
+  text-align: left;
+
+  .span {
+    padding: 10px;
+    text-align: justify;
+    font-size: 18px;
+  }
+  .subtitle {
+    color: #979797;
+  }
+
+  .limit {
+    border: 1px solid white;
+  }
+
+  .info {
+    width: 14vw;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+  }
 }
 
 #cancelBtn {

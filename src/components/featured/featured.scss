@@ -51,7 +51,7 @@
   }
 
   .info {
-    width: 35%;
+    width: 30%;
     position: absolute;
     left: 50px;
     bottom: 160px;
@@ -64,11 +64,14 @@
     flex-direction: column;
     gap: 20px;
 
-    img {
+    .title {
       width: 45vw;
+      font-size: 3.3vw;
+      font-weight: 900;
     }
 
-    .desc {
+    .dsc {
+      text-align: justify;
       @include mobile {
         width: 400px;
       }

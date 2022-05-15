@@ -32,8 +32,8 @@ export default function ListItem({ index, item, openModal, setContent }) {
   }, [item]);
 
   const style = {
-    left: isHovered && index * 225 - 50 + index * 2.5,
-    marginRight: isHovered && index * 2.5,
+    left: isHovered && index * 245 - 50 + index * 2.5,
+    marginRight: isHovered && 2 + index * 2.5,
   };
 
   return (
@@ -48,10 +48,9 @@ export default function ListItem({ index, item, openModal, setContent }) {
           setContent(movie);
         }}
       >
-        <img src={movie.imgSm} alt="" />
+        <img src={movie.img} alt="" />
         {isHovered && (
           <>
-            <video src={movie.trailer} autoPlay={true} loop muted />
             <div className="itemInfo">
               <div className="icons">
                 <PlayArrow className="icon" />
@@ -59,13 +58,6 @@ export default function ListItem({ index, item, openModal, setContent }) {
                 <ThumbUpAltOutlined className="icon" />
                 <ThumbDownOutlined className="icon" />
               </div>
-              <div className="itemInfoTop">
-                <span className="limit">+{movie.limit}</span>
-                <span>{movie.year}</span>
-                <span>{movie.duration}</span>
-              </div>
-
-              <div className="genre">{movie.genre}</div>
             </div>
           </>
         )}

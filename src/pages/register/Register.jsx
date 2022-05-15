@@ -14,9 +14,8 @@ export default function Register() {
   const handleStart = async () => {
     try {
       let emailValidate = await api.get("/users/email/" + tempEmail);
-      if (emailValidate) {
-        navigate("/login");
-      }
+
+      emailValidate.data && navigate("/login");
     } catch (error) {
       console.log(error);
     }

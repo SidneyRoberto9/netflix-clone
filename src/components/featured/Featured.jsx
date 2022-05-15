@@ -55,7 +55,7 @@ export default function Featured({ type, setGenre }) {
       <img src={content.img} alt="" />
 
       <div className="info">
-        <img src={content.imgTitle} alt="logo" />
+        <h3 className="title">{content.title}</h3>
         <span className="dsc">{content.desc}</span>
         <div className="buttons">
           <Link to="/watch" state={content} className="link">
