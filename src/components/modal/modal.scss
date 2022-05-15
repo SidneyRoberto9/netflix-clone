@@ -112,7 +112,9 @@
   }
 
   .info {
-    width: 14vw;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     height: 20px;
     display: flex;
     justify-content: space-between;
