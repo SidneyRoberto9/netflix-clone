@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     ),
-    url("https://i.pinimg.com/originals/2f/88/a9/2f88a9427474343f7275e3b8f6fcc2e1.jpg");
+    url("../../assets/images/loginbg.webp");
   background-size: cover;
   position: relative;
 
@@ -35,29 +35,45 @@
       color: white;
 
       form {
-        width: 300px;
-        height: 300px;
-        padding: 30px;
+        width: 23.2vw;
+        height: 45vh;
+        min-width: 408px;
+        min-height: 488px;
+        padding: 40px 56px;
         border-radius: 5px;
-        background-color: var(--main-color);
+        background-color: var(--main-rgba);
         display: flex;
         flex-direction: column;
         justify-content: space-around;
 
-        input {
-          height: 40px;
-          border-radius: 5px;
-          background-color: gray;
-          color: white;
-          padding-left: 10px;
+        h1 {
+          font-size: 36px;
+        }
 
+        :is(h1, input, button, span, small) {
+          margin-bottom: 15px;
+        }
+
+        input {
+          height: 52px;
+          border: none;
+          border-radius: 5px;
+          background-color: #666666;
+          color: white;
+          padding: 14px 20px;
+          outline: none;
+          margin-top: 5px;
           &::placeholder {
             color: lightgray;
+          }
+
+          &:focus {
+            background-color: #8c8c8c;
           }
         }
 
         button {
-          height: 40px;
+          height: 52px;
           border-radius: 5px;
           background-color: red;
           color: white;
@@ -65,14 +81,19 @@
           font-size: 18px;
           font-weight: 500;
           cursor: pointer;
+          margin-top: 5px;
         }
 
         span {
+          font-size: 14px;
           color: lightgray;
           b {
             color: white;
             cursor: pointer;
           }
+        }
+        small {
+          font-size: 14px;
         }
       }
     }

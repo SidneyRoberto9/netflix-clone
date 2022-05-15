@@ -81,7 +81,7 @@
 
         .registerButton {
           flex: 3;
-          padding-right: 10px;
+
           font-size: 25px;
           height: 60px;
 
@@ -91,7 +91,8 @@
           cursor: pointer;
 
           span {
-            padding-left: 20px;
+            margin-left: 25%;
+            width: 160px;
             display: flex;
             align-items: center;
             background: #e50914;

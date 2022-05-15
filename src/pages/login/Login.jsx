@@ -1,18 +1,34 @@
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { login } from "../../context/authContext/apiCalls";
+import { ToastContainer, toast } from "react-toastify";
+import { toastOptions } from "../../utils/toastConfigure";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { dispatch } = useContext(AuthContext);
+  const { dispatch, error } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     login({ email, password }, dispatch);
+
+    if ((email || password) === "") {
+      toast.warn("Please fill in the fields!!", toastOptions);
+      return;
+    }
+
+    if (error) {
+      toast.warn(
+        "Invalid Email or Password, Please try again...",
+        toastOptions
+      );
+      return;
+    }
   };
 
   return (
@@ -44,7 +60,7 @@ export default function Login() {
             </button>
             <span>
               New to Netflix?
-              <b onClick={() => navigate("/register")}>Sign up now.</b>
+              <b onClick={() => navigate("/register")}> Sign up now.</b>
             </span>
             <small>
               This page is protected by Google reCAPTCHA to ensure you're not a
@@ -53,6 +69,7 @@ export default function Login() {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
