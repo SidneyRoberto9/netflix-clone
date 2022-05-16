@@ -27,6 +27,7 @@
       .logo {
         height: 25px;
         margin-right: 40px;
+        object-fit: fill;
 
         @include mobile {
           display: none;

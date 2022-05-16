@@ -52,7 +52,9 @@ export default function Featured({ type, setGenre }) {
           </select>
         </div>
       )}
+
       <img src={content.img} loading="lazy" alt="" />
+      <span className="bg"></span>
 
       <div className="info">
         <h3 className="title">{content.title}</h3>
