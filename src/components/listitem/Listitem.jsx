@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import "./listitem.scss";
 
-export default function ListItem({ index, item, openModal, setContent }) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function ListItem({ item, openModal, setContent }) {
   const [movie, setMovie] = useState({});
 
   useEffect(() => {

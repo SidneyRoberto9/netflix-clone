@@ -9,7 +9,8 @@ import ListItem from "../listitem/Listitem";
 const List = ({ list, openModal, setContent }) => {
   const [isMoved, setIsMoved] = useState(false);
   const [sliderNumber, setSliderNumber] = useState(0);
-  const [clickLimit] = useState(parseInt(window.innerWidth / 230));
+  const widthCard = 300;
+  const [clickLimit] = useState(parseInt(window.innerWidth / widthCard));
 
   const listRef = useRef();
 
@@ -20,7 +21,7 @@ const List = ({ list, openModal, setContent }) => {
     if (direction === "left" && sliderNumber > 0) {
       setSliderNumber(sliderNumber - 1);
       listRef.current.style.transform = `translateX(${
-        clickLimit * 230 + distance
+        clickLimit * widthCard + distance
       }px)`;
     }
 
@@ -30,7 +31,7 @@ const List = ({ list, openModal, setContent }) => {
     ) {
       setSliderNumber(sliderNumber + 1);
       listRef.current.style.transform = `translateX(${
-        clickLimit * -230 + distance
+        clickLimit * -widthCard + distance
       }px)`;
     }
   };
@@ -46,7 +47,6 @@ const List = ({ list, openModal, setContent }) => {
         <div className="container" ref={listRef}>
           {list.content.map((item, i) => (
             <ListItem
-              index={i}
               item={item}
               key={i}
               openModal={openModal}
