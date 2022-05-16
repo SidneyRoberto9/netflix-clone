@@ -87,7 +87,7 @@
 
 .modalContainer .body {
   position: absolute;
-  bottom: 16vh;
+  bottom: 13vh;
   width: 75vw;
   flex: 50%;
   display: flex;
@@ -97,6 +97,15 @@
   font-size: 16px;
   color: white;
   text-align: left;
+
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
+    top: -8vh;
+    left: 10px;
+  }
 
   .span {
     padding: 10px;

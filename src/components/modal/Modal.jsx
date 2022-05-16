@@ -27,7 +27,7 @@ function Modal({ closeModal, content }) {
                 playerVars: { disablekb: 1 },
               },
             }}
-            playing="true"
+            playing={true}
             muted={muted}
           />
         </div>
@@ -37,6 +37,7 @@ function Modal({ closeModal, content }) {
         </div>
 
         <div className="body">
+          <h2 className="title">{content.title}</h2>
           <div className="info">
             <span>{content.year}</span> -
             <b className="limit">+{content.limit}</b> -
