@@ -35,8 +35,9 @@ export default function Featured({ type, setGenre }) {
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
           <select name="genre" id="genre" onChange={handleGenreChange}>
-            <option>Genre</option>
+            <option value="">All</option>
             <option value="adventure">Adventure</option>
+            <option value="action">Action</option>
             <option value="comedy">Comedy</option>
             <option value="crime">Crime</option>
             <option value="fantasy">Fantasy</option>
