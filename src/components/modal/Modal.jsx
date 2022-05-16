@@ -23,10 +23,11 @@ function Modal({ closeModal, content }) {
             width="80vw"
             height="60vh"
             config={{
-              youtube: { playerVars: { disablekb: 1 } },
+              youtube: {
+                playerVars: { disablekb: 1 },
+              },
             }}
             playing="true"
-            onMouseEnter={() => console.log("mouse enter")}
             muted={muted}
           />
         </div>

@@ -1,12 +1,5 @@
-import {
-  Add,
-  PlayArrow,
-  ThumbDownOutlined,
-  ThumbUpAltOutlined,
-} from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { api } from "../../services/api";
-
 import "./listitem.scss";
 
 export default function ListItem({ index, item, openModal, setContent }) {
@@ -47,19 +40,7 @@ export default function ListItem({ index, item, openModal, setContent }) {
           setContent(movie);
         }}
       >
-        <img src={movie.img} alt="" />
-        {isHovered && (
-          <>
-            <div className="itemInfo">
-              <div className="icons">
-                <PlayArrow className="icon" />
-                <Add className="icon" />
-                <ThumbUpAltOutlined className="icon" />
-                <ThumbDownOutlined className="icon" />
-              </div>
-            </div>
-          </>
-        )}
+        <img src={movie.img} loading="lazy" alt="..." />
       </div>
     </>
   );
