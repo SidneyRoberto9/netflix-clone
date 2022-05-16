@@ -2,7 +2,6 @@ import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
 import React, { useEffect, useState } from "react";
 import { api } from "../../services/api";
-import { Link } from "react-router-dom";
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
@@ -61,12 +60,11 @@ export default function Featured({ type, setGenre }) {
         <h3 className="title">{content.title}</h3>
         <span className="dsc">{content.desc}</span>
         <div className="buttons">
-          <Link to="/watch" state={content} className="link">
-            <button className="play">
-              <PlayArrow />
-              <span>Play</span>
-            </button>
-          </Link>
+          <button className="play">
+            <PlayArrow />
+            <span>Play</span>
+          </button>
+
           <button className="more">
             <InfoOutlined />
             <span>Info</span>

@@ -121,12 +121,12 @@
   }
 
   .info {
-    width: 200px;
-    min-width: 200px;
-    max-width: 200px;
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
     height: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding-left: 10px;
   }
 }

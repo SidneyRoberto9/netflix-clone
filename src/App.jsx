@@ -2,8 +2,8 @@ import { AuthContext } from "./context/authContext/AuthContext";
 import Register from "./pages/register/Register";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
-import Watch from "./pages/watch/Watch";
 import { useContext } from "react";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -36,8 +36,7 @@ const App = () => {
         {user && (
           <>
             <Route path="/movies" element={<Home type="movie" />} />
-            <Route path="/series" element={<Home type="series" />} />
-            <Route path="/watch" element={<Watch />} />
+            <Route path="/series" element={<Home type="serie" />} />
           </>
         )}
       </Routes>

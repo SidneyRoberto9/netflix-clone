@@ -39,9 +39,9 @@ function Modal({ closeModal, content }) {
         <div className="body">
           <h2 className="title">{content.title}</h2>
           <div className="info">
-            <span>{content.year}</span> -
-            <b className="limit">+{content.limit}</b> -
-            <span>{content.duration}</span>
+            <span> {content.year} </span> -
+            <b className="limit"> +{content.limit} </b> -
+            <span> {content.duration} </span>
           </div>
           <span className="span">{content.desc}</span>
           <span className="span">

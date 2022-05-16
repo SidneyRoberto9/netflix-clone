@@ -20,6 +20,9 @@
   margin: 0;
   font-family: "Montserrat", sans-serif;
 }
+body {
+  background-color: var(--main-color);
+}
 
 @mixin tablet {
   @media (max-width: 768px) {
