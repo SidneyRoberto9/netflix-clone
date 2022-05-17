@@ -1,19 +1,19 @@
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { login } from "../../context/authContext/apiCalls";
-import { ToastContainer, toast } from "react-toastify";
 import { toastOptions } from "../../utils/toastConfigure";
+import { ToastContainer, toast } from "react-toastify";
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 import "./login.scss";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { dispatch, error } = useContext(AuthContext);
+  const { dispatch, state } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+  const handleLogin = (e: any) => {
     e.preventDefault();
     login({ email, password }, dispatch);
 
@@ -22,7 +22,7 @@ export default function Login() {
       return;
     }
 
-    if (error) {
+    if (state.error) {
       toast.warn(
         "Invalid Email or Password, Please try again...",
         toastOptions

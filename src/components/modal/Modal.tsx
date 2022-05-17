@@ -6,7 +6,7 @@ import "./modal.scss";
 function Modal({ closeModal, content }) {
   const [muted, setMuted] = useState(false);
 
-  const cap = (string) => {
+  const cap = (string: string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 

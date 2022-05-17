@@ -1,8 +1,10 @@
+import { UserLogin } from "../../models/user.model";
+
 export const loginStart = () => ({
   type: "LOGIN_START",
 });
 
-export const loginSuccess = (user) => ({
+export const loginSuccess = (user: UserLogin) => ({
   type: "LOGIN_SUCCESS",
   payload: user,
 });

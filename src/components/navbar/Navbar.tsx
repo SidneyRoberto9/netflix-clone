@@ -1,8 +1,8 @@
 import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logout } from "../../context/authContext/AuthActions";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { logout } from "../../context/authContext/AuthActions";
-import { AuthContext } from "../../context/authContext/AuthContext";
 import "./navbar.scss";
 
 const Navbar = () => {

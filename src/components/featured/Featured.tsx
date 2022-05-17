@@ -2,9 +2,10 @@ import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import "./featured.scss";
 import React, { useEffect, useState } from "react";
 import { api } from "../../services/api";
+import { Movie } from "../../models/movie.model";
 
 export default function Featured({ type, setGenre }) {
-  const [content, setContent] = useState({});
+  const [content, setContent] = useState({} as Movie);
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -23,14 +24,14 @@ export default function Featured({ type, setGenre }) {
     getRandomContent();
   }, [type]);
 
-  const handleGenreChange = (e) => {
+  const handleGenreChange = (e: any) => {
     e.preventDefault();
     setGenre(e.target.value);
   };
 
   return (
     <div className="featured">
-      {type && (
+      {type !== "null" && (
         <div className="category">
           <span>{type === "movies" ? "Movies" : "Series"}</span>
           <select name="genre" id="genre" onChange={handleGenreChange}>

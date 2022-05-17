@@ -13,27 +13,28 @@ import {
 import "./App.scss";
 
 const App = () => {
-  const { user } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
 
   return (
     <Router>
       <Routes>
         <Route
           path="/"
-          exact
-          element={user ? <Home /> : <Navigate to="/register" />}
+          element={
+            state.user ? <Home type="null" /> : <Navigate to="/register" />
+          }
         />
 
         <Route
           path="/login"
-          element={!user ? <Login /> : <Navigate to="/" />}
+          element={!state.user ? <Login /> : <Navigate to="/" />}
         />
         <Route
           path="/register"
-          element={!user ? <Register /> : <Navigate to="/" />}
+          element={!state.user ? <Register /> : <Navigate to="/" />}
         />
 
-        {user && (
+        {state.user && (
           <>
             <Route path="/movies" element={<Home type="movie" />} />
             <Route path="/series" element={<Home type="serie" />} />

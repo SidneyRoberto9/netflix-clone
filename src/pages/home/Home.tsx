@@ -1,13 +1,14 @@
+import { List as ListModel } from "../../models/list.model";
 import Featured from "../../components/featured/Featured";
 import Navbar from "../../components/navbar/Navbar";
+import Modal from "../../components/modal/Modal";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import "./home.scss";
-import Modal from "../../components/modal/Modal";
 
 const Home = ({ type }) => {
-  const [lists, setLists] = useState([]);
+  const [lists, setLists] = useState([] as ListModel[]);
   const [genre, setGenre] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [content, setContent] = useState({});

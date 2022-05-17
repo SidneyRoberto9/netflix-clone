@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Movie } from "../../models/movie.model";
 import { api } from "../../services/api";
 import "./listitem.scss";
 
 export default function ListItem({ item, openModal, setContent }) {
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState({} as Movie);
 
   useEffect(() => {
     const getMovie = async () => {

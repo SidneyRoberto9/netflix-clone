@@ -1,7 +1,7 @@
 import { ArrowForwardIosRounded } from "@material-ui/icons";
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../services/api";
+import React, { useState } from "react";
 import "./register.scss";
 
 export default function Register() {
@@ -22,7 +22,7 @@ export default function Register() {
     setEmail(tempEmail);
   };
 
-  const handleFinish = async (e) => {
+  const handleFinish = async (e: any) => {
     e.preventDefault();
     try {
       let user = { email, username: email.split("@", 1)[0], password };
