@@ -5,6 +5,7 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/SidneyRoberto9/netflix-clone?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/SidneyRoberto9/netflix-clone?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/SidneyRoberto9/netflix-clone?style=for-the-badge)
+Obs: Pode executar o login sem medo, não precisa usar email valido, so vai precisar lembrar dele.
 
 <img src=".github/images/dataset  (4).png" alt="exemplo imagem">
 <img src=".github/images/dataset  (3).png" alt="exemplo imagem">
@@ -37,5 +38,3 @@ yarn ou npm i
 
 yarn start ou npm start
 ```
-
-[⬆ Voltar ao topo](#Netflix-Clone)<br
