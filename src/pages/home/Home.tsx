@@ -16,7 +16,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const getRandomLists = async () => {
       const res = await api.get(
-        `lists/random${type ? "?type=" + type : ""}${
+        `lists/random${type !== "null" ? "?type=" + type : ""}${
           genre ? "&genre=" + genre : ""
         }`,
         {

@@ -21,7 +21,7 @@ const App = () => {
         <Route
           path="/"
           element={
-            state.user ? <Home type={"movies"} /> : <Navigate to="/register" />
+            state.user ? <Home type={"null"} /> : <Navigate to="/register" />
           }
         />
 
